@@ -1,6 +1,7 @@
 import blob1 from "../assets/blob1.png"
 import blob2 from "../assets/blob2.png"
 import me from "../assets/giuseppe.png"
+import { customSvg } from "../data"
 export default function HeroSec() {
     return (
         <>
@@ -10,6 +11,13 @@ export default function HeroSec() {
                     <h1 className=" text-[90px] font-bold">Giuseppe Guerrera </h1>
                     <h2 className=" text-[78px] font-bold">Full Stack Developer</h2>
                     <p className="text-2xl pt-8">BASED IN BARI</p>
+                    <div className="pt-13 flex flex-wrap gap-7">
+                        {customSvg.map((item) => (
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+                            <path d={item.customD}></path>
+                            </svg>
+                        ))}
+                    </div>
                 </div>
                 <img className="absolute w-[480px] -top-5 right-28 " src={me} alt="Foto di me stesso" ></img>
             </header>

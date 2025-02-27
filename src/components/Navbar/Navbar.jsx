@@ -39,10 +39,10 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 w-full z-50">
             <div className="w-full flex items-center justify-between p-4">
-                <div className="flex items-center font-bold text-2xl">
+                <div className="flex items-center ps-10 font-bold text-2xl">
                     JS
                 </div>
-                <div className="hidden font-medium pe-20 sm:flex gap-3 flex-grow justify-center">
+                <div className="flex gap-3 justify-center ps-30 font-medium">
                     {navLinks.slice(0, 4).map((item, index) => (
                         <div key={index} className="relative">
                             <a
