@@ -6,6 +6,13 @@ export const navLinks = [
     { name: "Contact", id: "contact" },
 ];
 
+export const progressBars = [
+    { label: "FRONT-END ", value: 90 },
+    { label: "BACK-END", value: 80 },
+    { label: "WEB DESIGN", value: 75 },
+    { label: "GRAPHIC DESIGN", value: 85 },
+];
+
 const offsets = {
     home: 1,
     about: 1,

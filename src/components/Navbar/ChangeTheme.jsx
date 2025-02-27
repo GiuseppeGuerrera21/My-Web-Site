@@ -1,59 +1,24 @@
 import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
     const [darkMode, setDarkMode] = useState("dark");
 
     useEffect(() => {
-        document.body.className = darkMode ? "bg-gray-900 text-white" : "bg-white text-black";
+        document.body.className = darkMode ? "bg-background text-white" : "bg-white text-black";
     }, [darkMode]);
 
     return (
-        <div className={`flex mt-4 p-2 rounded-full shadow-md transition-all duration-300 ${darkMode === 'light' ? 'bg-gray-200' : 'bg-gray-800'}`}>
-            <button
-                onClick={() => setDarkMode("light")}
-                className={`px-4 py-2 text-lg rounded-full transition-all duration-300 ${darkMode === "light" ? "bg-white shadow-inner" : "bg-transparent"}`}
+        <button
+            className={`flex items-center justify-start w-20 h-10 p-1 border-2 rounded-full border-primary bg-primary/20 relative overflow-hidden cursor-pointer transition duration-1100  ${darkMode ? "text-white shadow-[6px_4px_5px_rgba(255,255,255,0.4)]" : "shadow-[7px_4px_5px_rgba(0,0,0,0.7)]"}`}
+            onClick={() => setDarkMode(!darkMode)}
+        >
+            <div
+                className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 absolute 
+                ${darkMode ? "translate-x-9 rotate-180 bg-black text-white shadow-[7px_-2px_10px_rgba(255,255,255,0.3)]" : "translate-x-0 bg-white text-black shadow-[10px_3px_10px_rgba(0,0,0,0.5)]"}`}
             >
-                Light
-            </button>
-            <button
-                onClick={() => setDarkMode("dark")}
-                className={`px-4 py-2 text-lg rounded-full transition-all duration-300 ${darkMode === "dark" ? "bg-gray-700 shadow-inner text-white" : "bg-transparent"}`}
-            >
-                Dark
-            </button>
-        </div>
+                {darkMode ? <Moon size={16} /> : <Sun size={16} />}
+            </div>
+        </button>
     );
 }
-
-// import { useState } from "react";
-
-// export default function ThemeToggle() {
-//   const [theme, setTheme] = useState("light");
-
-//   return (
-//     <section
-//       className={`w-full h-screen flex flex-col items-center justify-center transition-all duration-700 ${theme === "light" ? "bg-gray-100 text-gray-900" : "bg-gray-900 text-gray-100"}`}
-//     >
-//       <header className="text-center">
-//         <h2 className="uppercase tracking-wider text-lg font-medium">
-//           Dark + Light Mode
-//         </h2>
-//         <h1 className="text-3xl font-bold">So hot right now.</h1>
-//       </header>
-//       <div className="flex mt-4 p-2 rounded-full shadow-md transition-all duration-300 ${theme === 'light' ? 'bg-gray-200' : 'bg-gray-800'}`">
-//         <button
-//           onClick={() => setTheme("light")}
-//           className={`px-4 py-2 text-lg rounded-full transition-all duration-300 ${theme === "light" ? "bg-white shadow-inner" : "bg-transparent"}`}
-//         >
-//           Light
-//         </button>
-//         <button
-//           onClick={() => setTheme("dark")}
-//           className={`px-4 py-2 text-lg rounded-full transition-all duration-300 ${theme === "dark" ? "bg-gray-700 shadow-inner text-white" : "bg-transparent"}`}
-//         >
-//           Dark
-//         </button>
-//       </div>
-//     </section>
-//   );
-// }
