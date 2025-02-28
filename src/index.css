@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
 @import "tailwindcss";
 
 @theme {
     --color-background: #25283D;
     --color-primary: #F52F57;
+}
+
+@layer utilities {
+    .font-title {
+        font-family: "Dangrek", sans-serif;
+    }
+
+    .font-pers {
+        font-family: "Playwrite IT Moderna", sans-serif;
+    }
+
+    .font-number{
+        font-family: "Lobster Two", sans-serif;
+    }
 }

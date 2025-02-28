@@ -5,7 +5,7 @@ export default function ThemeToggle() {
     const [darkMode, setDarkMode] = useState("dark");
 
     useEffect(() => {
-        document.body.className = darkMode ? "bg-background text-white" : "bg-white text-black";
+        document.body.className = darkMode ? "bg-background text-white" : "bg-blue-100 text-black";
     }, [darkMode]);
 
     return (
@@ -15,7 +15,7 @@ export default function ThemeToggle() {
         >
             <div
                 className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 absolute 
-                ${darkMode ? "translate-x-9 rotate-180 bg-black text-white shadow-[7px_-2px_10px_rgba(255,255,255,0.3)]" : "translate-x-0 bg-white text-black shadow-[10px_3px_10px_rgba(0,0,0,0.5)]"}`}
+                ${darkMode ? "translate-x-9 rotate-180 bg-black text-white shadow-[7px_-2px_10px_rgba(255,255,255,0.3)]" : "translate-x-0 bg-blue-100 text-black shadow-[10px_3px_10px_rgba(0,0,0,0.5)]"}`}
             >
                 {darkMode ? <Moon size={16} /> : <Sun size={16} />}
             </div>

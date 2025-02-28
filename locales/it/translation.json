@@ -1,0 +1,10 @@
+{
+    "aboutUs": {
+        "hero": {
+            "title": "Chi Sono",
+            "description1": "Sono un ragazzo di 22 anni con una forte passione per la programmazione e la tecnologia. Mi piace affrontare sfide complesse, trovare soluzioni innovative e migliorarmi costantemente. Sono sempre alla ricerca di nuove tecnologie da esplorare, convinto che la crescita passi attraverso la curiosità e l’apprendimento continuo.",
+            "description2":"Oltre al mondo del coding, ho un’altra grande passione: le macchine e i motori. Mi affascina tutto ciò che riguarda la meccanica, la potenza e il design dei veicoli. Adoro scoprire come funzionano, approfondire ogni dettaglio tecnico e lasciarmi trasportare dall’emozione che sanno trasmettere.",
+            "description3":"Che si tratti di scrivere codice o di immergermi nel mondo dei motori, ciò che mi spinge è sempre la stessa cosa: la voglia di capire, sperimentare e superare ogni limite."
+        }
+    }
+}
