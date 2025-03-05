@@ -1,0 +1,136 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import aulab from "../assets/aulab.png";
+import react from "../assets/react.png";
+
+const cards = [
+    {
+        id: 1,
+        title: "Aulab Hackademy",
+        image: aulab,
+        color: "bg-gradient-to-tl from-primary to-background",
+        description: `
+            Sviluppo di Applicazioni Web: Esperienza nello sviluppo di applicazioni web utilizzando HTML, CSS, JavaScript, PHP e il framework Laravel, con un focus sull'usabilità e l'efficienza del codice. Database Relazionali e SQL: Implementazione e gestione di database relazionali con MySQL, inclusa la scrittura di query SQL avanzate per l'estrazione e la manipolazione dei dati. Versionamento del Codice: Utilizzo di Git e GitHub per il versionamento del codice, garantendo una gestione efficace delle versioni e facilitando il lavoro collaborativo in team.
+            Metodologie Agile: Applicazione delle metodologie di sviluppo Agile per gestire progetti software in modo iterativo e incrementale, migliorando la collaborazione e l'adattabilità alle esigenze del cliente. Intelligenza Artificiale: Introduzione ai concetti di base dell'Intelligenza Artificiale, con particolare attenzione all'applicazione di tecniche AI in contesti pratici e allo sviluppo continuo delle competenze in questo ambito.
+        `,
+    },
+    {
+        id: 2,
+        title: "Udemy",
+        image: react,
+        color: "bg-gradient-to-tr from-primary to-background",
+        description: `
+            React Fundamentals: Apprendimento delle basi di React, inclusi componenti, stato, props e gestione degli eventi.
+            Advanced React: Approfondimento di concetti avanzati come React Hooks, Context API e React Router.
+            State Management: Utilizzo di Redux per la gestione dello stato globale nelle applicazioni React.
+            Progetti Pratici: Realizzazione di progetti pratici per consolidare le competenze acquisite, inclusa la creazione di un'applicazione e-commerce completa.
+            Best Practices: Apprendimento delle migliori pratiche per lo sviluppo di applicazioni React, inclusa la strutturazione del codice e l'ottimizzazione delle prestazioni.
+        `,
+    }
+];
+
+export default function ExpandableCards() {
+    const [selectedCard, setSelectedCard] = useState(null);
+    const [isExpanding, setIsExpanding] = useState(false);
+
+    // Disabilita lo scroll della pagina principale quando la card è aperta
+    useEffect(() => {
+        if (selectedCard) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [selectedCard]);
+
+    const handleCardClick = (card) => {
+        setIsExpanding(true);
+        setTimeout(() => setSelectedCard(card), 600); // Tempo sincronizzato con le animazioni
+    };
+
+    const handleClose = () => {
+        setSelectedCard(null);
+        setIsExpanding(false);
+    };
+
+    return (
+        <div className="grid grid-cols-2 gap-6 p-6 max-w-4xl mx-auto">
+            {cards.map((card) => (
+                <motion.div
+                    key={card.id}
+                    layoutId={`card-${card.id}`}
+                    className={`relative cursor-pointer p-6 rounded-lg shadow-lg text-white ${card.color}`}
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => handleCardClick(card)}
+                >
+                    {/* Immagine con dissolvenza verso l'alto */}
+                    <motion.img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-60 object-center rounded-md"
+                        animate={isExpanding ? { opacity: 0, y: -50 } : { opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                    />
+                    {/* Titolo con dissolvenza verso il basso */}
+                    <motion.h1
+                        className="mt-4 text-3xl text-center font-title font-semibold"
+                        animate={isExpanding ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.3 }}
+                    >
+                        {card.title}
+                    </motion.h1>
+                </motion.div>
+            ))}
+
+            <AnimatePresence>
+                {selectedCard && (
+                    <motion.div
+                        layoutId={`card-${selectedCard.id}`}
+                        className={`fixed inset-0 z-50 ${selectedCard.color}`}
+                        initial={{ borderRadius: 16, scale: 1 }}
+                        animate={{
+                            borderRadius: 0,
+                            scale: 1,
+                            transition: {
+                                duration: 0.5,
+                                ease: "easeInOut"
+                            }
+                        }}
+                        exit={{
+                            borderRadius: 16, // Ripristina i bordi arrotondati
+                            scale: 1,
+                            transition: { duration: 0.3 }
+                        }}
+                        onClick={handleClose}
+                    >
+                        <motion.div
+                            className="w-full h-full flex flex-col items-center justify-start p-6 overflow-y-auto"
+                            initial={{ opacity: 0 }}
+                            animate={{
+                                opacity: 1,
+                                transition: { delay: 0.6 }
+                            }}
+                            exit={{ opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()} // Impedisce la chiusura al click sul contenuto
+                        >
+                            <img
+                                src={selectedCard.image}
+                                alt={selectedCard.title}
+                                className="w-2/3 h-[650px] object-center rounded-md"
+                            />
+                            <h1 className="mt-4 text-3xl font-bold font-title">{selectedCard.title}</h1>
+                            <p className="mt-4 text-white text-lg leading-relaxed px-18 ">
+                                {selectedCard.description}
+                            </p>
+                            <button
+                                className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+                                onClick={handleClose}
+                            >
+                                Chiudi
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}

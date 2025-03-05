@@ -14,7 +14,7 @@ export default function Navbar() {
         const handleScroll = () => {
             let closestIndex = -1;
             let closestDistance = Infinity;
-
+            
             navLinks.slice(0, 4).forEach((item, index) => {
                 const section = document.getElementById(item.id);
                 if (section) {
