@@ -5,7 +5,7 @@ export default function Certifications() {
     return (
         <section
             id='certifications'
-            className="min-h-screen flex flex-col text-center justify-center space-y-18"
+            className="min-h-screen flex flex-col text-center justify-center space-y-10 md:space-y-18 py-20 md:py-0"
             style={{ backgroundImage: `url(${bg})` }}
         >
             <div className="space-y-6">

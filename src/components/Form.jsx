@@ -89,8 +89,8 @@ const ContactForm = () => {
     const fields = ["message", "subject", "phone", "email", "name"];
 
     return (
-        <div ref={ref} className="w-1/2 overflow-hidden">
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div ref={ref} className="w-full px-10 md:px-0 md:w-1/2 overflow-hidden">
+            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
                 {fields.map((field, index) => (
                     <motion.div
                         key={field}
@@ -99,7 +99,7 @@ const ContactForm = () => {
                         animate={controls}
                         className="w-full"
                     >
-                        <label htmlFor={field} className="block text-base font-bold text-white">
+                        <label htmlFor={field} className="block text-2xl font-title font-medium text-white">
                             {field.charAt(0).toUpperCase() + field.slice(1)}
                         </label>
                         {field !== "message" ? (
