@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import aulab from "../assets/aulab.png";
 import react from "../assets/react.png";
+import Vanta from "./Vanta";
 
 const cards = [
     {
         id: 1,
         title: "Aulab Hackademy",
         image: aulab,
-        color: "bg-gradient-to-tl from-primary to-background",
+        color: "bg-gradient-to-bl from-primary to-background",
         description: `
             Sviluppo di Applicazioni Web: Esperienza nello sviluppo di applicazioni web utilizzando HTML, CSS, JavaScript, PHP e il framework Laravel, con un focus sull'usabilità e l'efficienza del codice. Database Relazionali e SQL: Implementazione e gestione di database relazionali con MySQL, inclusa la scrittura di query SQL avanzate per l'estrazione e la manipolazione dei dati. Versionamento del Codice: Utilizzo di Git e GitHub per il versionamento del codice, garantendo una gestione efficace delle versioni e facilitando il lavoro collaborativo in team.
             Metodologie Agile: Applicazione delle metodologie di sviluppo Agile per gestire progetti software in modo iterativo e incrementale, migliorando la collaborazione e l'adattabilità alle esigenze del cliente. Intelligenza Artificiale: Introduzione ai concetti di base dell'Intelligenza Artificiale, con particolare attenzione all'applicazione di tecniche AI in contesti pratici e allo sviluppo continuo delle competenze in questo ambito.
@@ -18,7 +19,7 @@ const cards = [
         id: 2,
         title: "Udemy",
         image: react,
-        color: "bg-gradient-to-tr from-primary to-background",
+        color: "bg-gradient-to-br from-primary to-background",
         description: `
             React Fundamentals: Apprendimento delle basi di React, inclusi componenti, stato, props e gestione degli eventi.
             Advanced React: Approfondimento di concetti avanzati come React Hooks, Context API e React Router.
@@ -33,7 +34,6 @@ export default function ExpandableCards() {
     const [selectedCard, setSelectedCard] = useState(null);
     const [isExpanding, setIsExpanding] = useState(false);
 
-    // Disabilita lo scroll della pagina principale quando la card è aperta
     useEffect(() => {
         if (selectedCard) {
             document.body.style.overflow = "hidden";
@@ -44,7 +44,7 @@ export default function ExpandableCards() {
 
     const handleCardClick = (card) => {
         setIsExpanding(true);
-        setTimeout(() => setSelectedCard(card), 600); // Tempo sincronizzato con le animazioni
+        setTimeout(() => setSelectedCard(card), 600);
     };
 
     const handleClose = () => {
@@ -52,27 +52,27 @@ export default function ExpandableCards() {
         setIsExpanding(false);
     };
 
+    const isMobile = window.innerWidth <= 768;
+
     return (
-        <div className="grid grid-cols-2 gap-6 p-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-4xl mx-auto">
             {cards.map((card) => (
                 <motion.div
                     key={card.id}
                     layoutId={`card-${card.id}`}
-                    className={`relative cursor-pointer p-6 rounded-lg shadow-lg text-white ${card.color}`}
-                    whileHover={{ scale: 1.05 }}
+                    className={`relative cursor-pointer p-6 rounded-xl shadow-lg text-white ${card.color}`}
+                    whileHover={!isMobile ? { scale: 1.05 } : {}}
                     onClick={() => handleCardClick(card)}
                 >
-                    {/* Immagine con dissolvenza verso l'alto */}
                     <motion.img
                         src={card.image}
                         alt={card.title}
-                        className="w-full h-60 object-center rounded-md"
+                        className="w-full h-40 md:h-60 object-center rounded-md"
                         animate={isExpanding ? { opacity: 0, y: -50 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                     />
-                    {/* Titolo con dissolvenza verso il basso */}
                     <motion.h1
-                        className="mt-4 text-3xl text-center font-title font-semibold"
+                        className="mt-4 text-2xl md:text-3xl text-center font-title font-semibold"
                         animate={isExpanding ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.3 }}
                     >
@@ -86,9 +86,8 @@ export default function ExpandableCards() {
                     <motion.div
                         layoutId={`card-${selectedCard.id}`}
                         className={`fixed inset-0 z-50 ${selectedCard.color}`}
-                        initial={{ borderRadius: 16, scale: 1 }}
+                        initial={{ scale: 1 }}
                         animate={{
-                            borderRadius: 0,
                             scale: 1,
                             transition: {
                                 duration: 0.5,
@@ -96,12 +95,12 @@ export default function ExpandableCards() {
                             }
                         }}
                         exit={{
-                            borderRadius: 16, // Ripristina i bordi arrotondati
                             scale: 1,
                             transition: { duration: 0.3 }
                         }}
                         onClick={handleClose}
                     >
+                        <Vanta />
                         <motion.div
                             className="w-full h-full flex flex-col items-center justify-start p-6 overflow-y-auto"
                             initial={{ opacity: 0 }}
@@ -110,15 +109,15 @@ export default function ExpandableCards() {
                                 transition: { delay: 0.6 }
                             }}
                             exit={{ opacity: 0 }}
-                            onClick={(e) => e.stopPropagation()} // Impedisce la chiusura al click sul contenuto
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <img
                                 src={selectedCard.image}
                                 alt={selectedCard.title}
-                                className="w-2/3 h-[650px] object-center rounded-md"
+                                className="w-full md:w-2/3 h-auto md:h-[650px] object-center rounded-md"
                             />
-                            <h1 className="mt-4 text-3xl font-bold font-title">{selectedCard.title}</h1>
-                            <p className="mt-4 text-white text-lg leading-relaxed px-18 ">
+                            <h1 className="mt-4 text-2xl md:text-3xl font-bold font-title">{selectedCard.title}</h1>
+                            <p className="mt-4 text-white text-base md:text-lg leading-relaxed p-6 backdrop-blur-md bg-black/10 shadow-xl rounded-2xl">
                                 {selectedCard.description}
                             </p>
                             <button

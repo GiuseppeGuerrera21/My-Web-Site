@@ -14,10 +14,10 @@ export default function AboutMe() {
                     <div className="text-xl md:text-2xl lg:text-xl space-y-3 backdrop-blur-xs ">
                         <p>{t("aboutUs.hero.description1")}</p>
                         <p>
-                        {t("aboutUs.hero.description2")}
+                            {t("aboutUs.hero.description2")}
                         </p>
                         <p>
-                        {t("aboutUs.hero.description3")}
+                            {t("aboutUs.hero.description3")}
                         </p>
                     </div>
                 </div>
