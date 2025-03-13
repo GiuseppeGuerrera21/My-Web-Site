@@ -1,34 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import aulab from "../assets/aulab.png";
-import react from "../assets/react.png";
+import { cards } from "../data";
 import Vanta from "./Vanta";
 
-const cards = [
-    {
-        id: 1,
-        title: "Aulab Hackademy",
-        image: aulab,
-        color: "bg-gradient-to-bl from-primary to-background",
-        description: `
-            Sviluppo di Applicazioni Web: Esperienza nello sviluppo di applicazioni web utilizzando HTML, CSS, JavaScript, PHP e il framework Laravel, con un focus sull'usabilità e l'efficienza del codice. Database Relazionali e SQL: Implementazione e gestione di database relazionali con MySQL, inclusa la scrittura di query SQL avanzate per l'estrazione e la manipolazione dei dati. Versionamento del Codice: Utilizzo di Git e GitHub per il versionamento del codice, garantendo una gestione efficace delle versioni e facilitando il lavoro collaborativo in team.
-            Metodologie Agile: Applicazione delle metodologie di sviluppo Agile per gestire progetti software in modo iterativo e incrementale, migliorando la collaborazione e l'adattabilità alle esigenze del cliente. Intelligenza Artificiale: Introduzione ai concetti di base dell'Intelligenza Artificiale, con particolare attenzione all'applicazione di tecniche AI in contesti pratici e allo sviluppo continuo delle competenze in questo ambito.
-        `,
-    },
-    {
-        id: 2,
-        title: "Udemy",
-        image: react,
-        color: "bg-gradient-to-br from-primary to-background",
-        description: `
-            React Fundamentals: Apprendimento delle basi di React, inclusi componenti, stato, props e gestione degli eventi.
-            Advanced React: Approfondimento di concetti avanzati come React Hooks, Context API e React Router.
-            State Management: Utilizzo di Redux per la gestione dello stato globale nelle applicazioni React.
-            Progetti Pratici: Realizzazione di progetti pratici per consolidare le competenze acquisite, inclusa la creazione di un'applicazione e-commerce completa.
-            Best Practices: Apprendimento delle migliori pratiche per lo sviluppo di applicazioni React, inclusa la strutturazione del codice e l'ottimizzazione delle prestazioni.
-        `,
-    }
-];
 
 export default function ExpandableCards() {
     const [selectedCard, setSelectedCard] = useState(null);

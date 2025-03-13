@@ -10,7 +10,7 @@ export default function Certifications() {
         >
             <div className="space-y-6">
                 <h2 className="text-5xl font-title">My Certifications</h2>
-                <p className="text-xl">Le certificazioni che attestano le mie competenze e il mio percorso di crescita professionale.</p>
+                <p className="text-xl w-2/3 mx-auto leading-relaxed p-6 backdrop-blur-sm bg-black/5 shadow-xl rounded-2xl">Ecco le certificazioni che ho ricevuto: una per un corso di programmazione intensivo con Aulab e un’altra per un corso di React (71.5 ore) acquistato su Udemy. Clicca su una di esse per maggiori dettagli</p>
             </div>
             <CardGrid />
         </section>

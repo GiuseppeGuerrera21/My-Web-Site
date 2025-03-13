@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ArrowNav from './ArrowNav';
+import { sliderData } from '../data';
 import './Slider.css';
-import img1 from "../assets/Villaoliva.png"
-import img2 from "../assets/Autotrasporti.png"
-
 
 const Slider = () => {
     const [animateNext, setAnimateNext] = useState(false);
@@ -35,38 +33,19 @@ const Slider = () => {
         }
     };
 
-    const sliderData = [
-        {
-            title: "Lossless Youths",
-            image: img1
-        },
-        {
-            title: "Estrange Bond",
-            image: img2
-        },
-        {
-            title: "The Gate Keeper",
-            image: "https://wharferj.files.wordpress.com/2015/11/bio_north.jpg"
-        },
-        {
-            title: "The Gate Keeper",
-            image: "https://i.redd.it/tc0aqpv92pn21.jpg"
-        },
-    ];
-
-
-
     return (
         <main>
             <ul className="slider" ref={sliderRef}>
                 {sliderData.map((item, index) => (
                     <li key={index} className="item" style={{ backgroundImage: `url('${item.image}')` }}>
                         <div className="content">
-                            <h2 className="title">{item.title}</h2>
-                            <p className="description">
+                            <div className="space-y-5 p-6 backdrop-blur-sm bg-black/50 shadow-xl rounded-2xl">
+                            <h2 className="font-bold text-lg">{item.title}</h2>
+                            <p className="leading-relaxed ">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
                             </p>
-                            <button>Read More</button>
+                            <button className="outline outline-white p-3 rounded-xl">Read More</button>
+                            </div>
                         </div>
                     </li>
                 ))}
