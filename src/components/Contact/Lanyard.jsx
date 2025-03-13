@@ -5,8 +5,8 @@ import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphe
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
-import cardGLB from "../assets/card.glb";
-import guerrera from "../assets/guerrera.png";
+import cardGLB from "../../assets/card.glb";
+import guerrera from "../../assets/guerrera.png";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 

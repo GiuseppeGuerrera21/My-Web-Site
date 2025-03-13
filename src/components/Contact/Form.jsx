@@ -3,7 +3,7 @@ import axios from "axios";
 import Lottie from "lottie-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import animationData from "../assets/AnimationForm.json";
+import animationData from "../../assets/AnimationForm.json";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -99,7 +99,7 @@ const ContactForm = () => {
                         animate={controls}
                         className="w-full"
                     >
-                        <label htmlFor={field} className="block text-2xl font-title font-medium text-white">
+                        <label htmlFor={field} className="block text-2xl font-title font-medium ">
                             {field.charAt(0).toUpperCase() + field.slice(1)}
                         </label>
                         {field !== "message" ? (
@@ -109,7 +109,7 @@ const ContactForm = () => {
                                 id={field}
                                 value={formData[field]}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border bg-white/5 text-white backdrop-blur-sm border-primary rounded-md shadow-sm focus:outline-none focus:border-white"
+                                className="mt-1 block w-full p-2 border bg-white/5  backdrop-blur-sm border-primary rounded-md shadow-sm focus:outline-none focus:border-white"
                                 placeholder={`Inserisci il tuo ${field}`}
                             />
                         ) : (
@@ -119,7 +119,7 @@ const ContactForm = () => {
                                 value={formData[field]}
                                 onChange={handleChange}
                                 rows="4"
-                                className="mt-1 block w-full p-2 border bg-white/5 text-white backdrop-blur-sm border-primary rounded-md shadow-sm resize-none focus:outline-none focus:border-white"
+                                className="mt-1 block w-full p-2 border bg-white/5  backdrop-blur-sm border-primary rounded-md shadow-sm resize-none focus:outline-none focus:border-white"
                                 placeholder="Inserisci il tuo messaggio"
                             />
                         )}

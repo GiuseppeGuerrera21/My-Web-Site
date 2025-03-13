@@ -7,6 +7,7 @@ import { navLinks } from "../../data";
 import { scrollToSection } from "../../data";
 import logo from "../../assets/logo.png"
 
+
 export default function Navbar() {
     const [activeIndex, setActiveIndex] = useState(0);
 

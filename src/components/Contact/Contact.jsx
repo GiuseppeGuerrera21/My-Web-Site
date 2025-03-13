@@ -1,6 +1,6 @@
 import Lanyard from "./Lanyard"
 import ContactForm from "./Form";
-import bg from "../assets/bg.png"
+import bg from "../../assets/bg.png"
 
 export default function Section() {
     return (
