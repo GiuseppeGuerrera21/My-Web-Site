@@ -1,0 +1,2 @@
+Sitemap: https://www.giuseppeguerrera.com/sitemap.xml
+Allow: /favicon.ico
