@@ -2,7 +2,7 @@ import './ArrowNav.css';
 
 const ArrowNav = ({ onNext, onPrev, animateNext, animatePrev }) => {
   return (
-    <div className="nav">
+    <div className="navarrow">
       <div
         className={`arrow prev left ${animatePrev ? 'animate' : ''}`}
         onClick={onPrev}

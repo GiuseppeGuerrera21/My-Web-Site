@@ -1,24 +1,25 @@
-main {
+.slidermain {
     position: relative;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    width: 110vh;
+    height: 77vh;
 }
 
 .slider {
     position: relative;
-    width: 100%;
-    height: 100vh;
-    /* Imposta l'altezza del contenitore */
+    width: 120vh;
+    height: 70vh;
     overflow: hidden;
-    /* Nasconde gli elementi fuori dal contenitore */
+    border-radius: 20px;
+    margin: 0 auto;
+    left: -4%;
 }
 
 .item {
-    width: 200px;
+    width: 150px;
     height: 300px;
     list-style-type: none;
     position: absolute;
+    left: 150px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
@@ -27,10 +28,8 @@ main {
     border-radius: 20px;
     box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
     transition: all 0.75s ease-in-out;
-    /* Transizione fluida per tutte le proprietà */
 }
 
-.item:nth-child(1),
 .item:nth-child(2) {
     left: 0;
     top: 0;
@@ -43,36 +42,26 @@ main {
 }
 
 .item:nth-child(3) {
-    left: 50%;
+    left: 55%;
 }
 
 .item:nth-child(4) {
     left: calc(50% + 220px);
 }
 
-.item:nth-child(5) {
-    left: calc(50% + 440px);
-}
-
-.item:nth-child(6) {
-    left: calc(50% + 660px);
-    opacity: 0;
-}
-
 .content {
-    width: min(30vw, 400px);
+    width: min(30vw, 350px);
     position: absolute;
     top: 50%;
     left: 3rem;
     transform: translateY(-50%);
-    font: 400 0.85rem helvetica, sans-serif;
     color: white;
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
     opacity: 0;
     display: none;
 }
 
-.item:nth-of-type(2) .content {
+.item:nth-child(2) .content {
     display: block;
     animation: show 0.75s ease-in-out 0.3s forwards;
 }
@@ -89,18 +78,8 @@ main {
     }
 }
 
-@media (width > 650px) and (width < 900px) {
-    .content .title {
-        font-size: 1rem;
-    }
-
-    .content .description {
-        font-size: 0.7rem;
-    }
-
-    .content button {
-        font-size: 0.7rem;
-    }
+/* Media query per dispositivi medi (da 650px a 900px) */
+@media (min-width: 650px) and (max-width: 900px) {
 
     .item {
         width: 160px;
@@ -115,48 +94,49 @@ main {
         left: calc(50% + 170px);
     }
 
-    .item:nth-child(5) {
-        left: calc(50% + 340px);
-    }
-
-    .item:nth-child(6) {
-        left: calc(50% + 510px);
-        opacity: 0;
-    }
 }
 
-@media (width < 650px) {
-    .content .title {
-        font-size: 0.9rem;
+/* Media query per dispositivi piccoli (fino a 650px di larghezza) */
+@media (max-width: 650px) {
+    .slidermain {
+        position: relative;
+        width: 45vh;
+        height: 35vh;
     }
+    
 
-    .content .description {
-        font-size: 0.65rem;
-    }
-
-    .content button {
-        font-size: 0.7rem;
+    .slider {
+        width: 45vh;
+        height: 27vh;
+        margin: 0 auto;
+        left: 0;
     }
 
     .item {
-        width: 130px;
-        height: 220px;
+        width: 70px;
+        height: 135px;
+        border-radius: 10px;
     }
 
     .item:nth-child(3) {
-        left: 50%;
+        left: 55%;
     }
 
     .item:nth-child(4) {
-        left: calc(50% + 140px);
+        left: calc(50% + 100px);
     }
 
-    .item:nth-child(5) {
-        left: calc(50% + 280px);
-    }
-
-    .item:nth-child(6) {
-        left: calc(50% + 420px);
+    .content {
+        width: min(40vw, 350px);
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        color: white;
+        text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
         opacity: 0;
+        display: none;
     }
+    
+
 }

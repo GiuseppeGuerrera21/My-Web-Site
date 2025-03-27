@@ -25,7 +25,6 @@ span+span {
     margin-top: 5px;
 }
 
-/* ANIMAZIONE ATTIVA */
 .active span:nth-child(1) {
     animation: ease .7s top forwards;
 }
@@ -38,7 +37,6 @@ span+span {
     animation: ease .7s bottom forwards;
 }
 
-/* ANIMAZIONE NON ATTIVA (RESET) */
 .not-active span:nth-child(1) {
     animation: ease .7s top-2 forwards;
 }
@@ -51,7 +49,7 @@ span+span {
     animation: ease .7s bottom-2 forwards;
 }
 
-/* ANIMAZIONI */
+
 @keyframes top {
     0% {
         top: 0;

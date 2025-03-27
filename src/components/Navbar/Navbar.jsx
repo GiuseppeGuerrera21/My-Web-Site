@@ -39,7 +39,7 @@ export default function Navbar() {
     }, [activeIndex]);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 bg-background/5 backdrop-blur-xs rounded-b-4xl">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-background/5 rounded-b-4xl">
             <div className="w-full flex items-center justify-between p-4 lg:ps-10">
 
                 <img className=" w-10" src={logo} alt="logo"/>

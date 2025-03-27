@@ -1,6 +1,6 @@
-import { progressBars } from "../data";
+import { progressBars } from "../../data";
 import ProgressBar from "./Progressbar";
-import blob3 from "../assets/blob3.png"
+import blob3 from "../../assets/blob3.png"
 import { useTranslation } from "react-i18next";
 export default function AboutMe() {
 

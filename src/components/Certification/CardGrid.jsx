@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cards } from "../data";
+import { cards } from "../../data";
 import Vanta from "./Vanta";
 
 

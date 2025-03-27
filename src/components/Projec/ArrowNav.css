@@ -1,19 +1,16 @@
-.nav {
+.navarrow {
     position: absolute;
     bottom: 2rem;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
     user-select: none;
     display: flex;
     gap: 2rem;
-    /* Spazio tra le frecce */
     justify-content: center;
-    /* Centra gli elementi all'interno del contenitore */
     align-items: center;
-    /* Allinea verticalmente gli elementi */
     width: 100%;
-    /* Occupa tutta la larghezza disponibile */
 }
 
 .arrow {
@@ -21,8 +18,8 @@
     --border: rgba(255, 255, 255, 0.12);
     display: block;
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -77,8 +74,8 @@
 }
 
 .arrow svg {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     display: block;
     position: relative;
     z-index: 1;

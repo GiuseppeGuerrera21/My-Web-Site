@@ -1,5 +1,5 @@
 import CardGrid from "./CardGrid"
-import bg from "../assets/bg.png"
+import bg from "../../assets/bg.png"
 
 export default function Certifications() {
     return (
