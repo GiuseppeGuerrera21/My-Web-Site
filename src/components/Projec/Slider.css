@@ -119,11 +119,11 @@
     }
 
     .item:nth-child(3) {
-        left: 55%;
+        left: 54%;
     }
 
     .item:nth-child(4) {
-        left: calc(50% + 100px);
+        left: calc(50% + 92px);
     }
 
     .content {
@@ -139,4 +139,19 @@
     }
     
 
+}
+
+/* Stile personalizzato per la scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #F52F57;
+    border-radius: 10px;
 }

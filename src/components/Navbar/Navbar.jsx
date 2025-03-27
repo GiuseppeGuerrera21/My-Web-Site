@@ -16,7 +16,7 @@ export default function Navbar() {
             let closestIndex = -1;
             let closestDistance = Infinity;
             
-            navLinks.slice(0, 4).forEach((item, index) => {
+            navLinks.slice(0, 5).forEach((item, index) => {
                 const section = document.getElementById(item.id);
                 if (section) {
                     const rect = section.getBoundingClientRect();
@@ -45,7 +45,7 @@ export default function Navbar() {
                 <img className=" w-10" src={logo} alt="logo"/>
                 
                 <div className="hidden md:flex gap-3 justify-center ps-30 font-medium">
-                    {navLinks.slice(0, 4).map((item, index) => (
+                    {navLinks.slice(0, 5).map((item, index) => (
                         <div key={index} className="relative">
                             <a
                                 href={`#${item.id}`}
